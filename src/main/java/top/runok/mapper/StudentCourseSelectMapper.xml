@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.runok.mapper.StudentCourseSelectMapper">
+    <!--
+     //查询学生号查询
+    public List<StudentCourseSelect> selectByS_id(Integer s_id);
+    //根据学生号课程号查询
+    public StudentCourseSelect selectByS_c(Integer s_id,Integer c_id);
+     //根据课程号查询
+    public List<StudentCourseSelect> selectByC_id(Integer c_id);
+    //delete
+    public int delete(Integer s_c_id);
+    //delete
+    public int deleteByS_id(Integer s_id);
+    //insert
+    public int insert(StudentCourseSelect studentCourseSelect);
+     -->
+    <insert id="insert" parameterType="top.runok.entity.StudentCourseSelect">
+        insert into student_course_select (s_c_id,s_id,c_id) values (null,#{s_id},#{c_id})
+    </insert>
+    <delete id="delete" parameterType="Integer">
+        delete  from student_course_select where s_c_id=#{s_c_id}
+    </delete>
+    <delete id="deleteByS_id" parameterType="Integer">
+        delete  from student_course_select where s_id=#{s_id}
+    </delete>
+    <select id="selectByS_id" parameterType="Integer" resultType="top.runok.entity.StudentCourseSelect">
+        select * from student_course_select where s_id=#{s_id}
+    </select>
+    <select id="selectByS_c" resultType="top.runok.entity.StudentCourseSelect" parameterType="Integer">
+        select * from student_course_select where s_id=#{s_id} and  c_id=#{c_id}
+    </select>
+    <select id="selectByC_id" parameterType="Integer" resultType="top.runok.entity.StudentCourseSelect">
+        select * from student_course_select where c_id=#{c_id}
+    </select>
+</mapper>

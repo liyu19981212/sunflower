@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="col-md-12">
+    <!-- TABLE STRIPED -->
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">公告管理</h3>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>公告ID号</th>
+                    <th>公告内容</th>
+                    <th>创建时间</th>
+
+
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="n : ${notice}">
+                    <td th:text="${n.n_id}"></td>
+                    <td th:text="${n.content}"></td>
+                    <td th:text="${n.createtime}"></td>
+
+
+
+                    <td><a th:href="@{/admin/updatenotice/(n_id=${n.n_id})}">修改</a>|| <a th:href="@{/admin/deletenotice/(n_id=${n.n_id})}">删除</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END TABLE STRIPED -->
+</div>
+<form action="/admin/addnoticeaction" method="post">
+    <div class="form-group">
+
+        <input type="text" name="content" class="form-control" placeholder="请输入新公告..." required>
+    </div>
+
+    <button type="submit" class="btn btn-default">添加评论</button>
+</form>
+
+<script src="../../static/assets/vendor/jquery/jquery.min.js"></script>
+<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+
+</body>
+</html>

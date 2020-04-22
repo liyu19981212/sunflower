@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>题目</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div th:each="tq,tqstat : ${testquestion}">
+    <label th:text="${tq.question}">
+        选择题题目要求
+    </label>
+    <div>
+        <label class="radio-inline">
+            <input type="radio" th:name="${tqstat.count}" id="optionsRadios1" class="ss" value="option1" th:text="${tq.choice_a}">
+        </label>
+        <label class="radio-inline">
+            <input type="radio" th:name="${tqstat.count}" id="optionsRadios2" class="ss" value="option2" th:text="${tq.getChoice_b()}">
+        </label>
+        <label class="radio-inline">
+            <input type="radio" th:name="${tqstat.count}" id="optionsRadios3" class="ss" value="option3" th:text="${tq.getChoice_c()}">
+        </label>
+        <label class="radio-inline">
+            <input type="radio" th:name="${tqstat.count}" id="optionsRadios4" class="ss" value="option4" th:text="${tq.choice_d}">
+        </label>
+        <br>
+        <div id="answer" style="display: none">
+            <label>答案为：</label>
+            <label th:text="${tq.answer}"></label>
+        </div>
+
+
+    </div>
+    <script th:inline="javascript">
+
+        $(document).ready(function(e) {
+            $(".ss").click(function(e) {
+                $("div:last-child").show();
+            });
+        });
+    </script>
+
+</div>
+
+</body>
+</html>

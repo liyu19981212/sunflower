@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改题目</title>
+    <link rel="stylesheet" href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="form-horizontal">
+    <form id="form" action="/teacher/updatetestquestionaction" method="post" >
+        <fieldset>
+            <div class="form-group"></div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">问题:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text"  name="question" th:value="${testquestion.question}" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">A选项:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text"  name="choice_a" th:value="${testquestion.choice_a}" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">B选项:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text"  name="choice_b" th:value="${testquestion.choice_b}" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">C选项:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text"  name="choice_c" th:value="${testquestion.choice_c}" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">D选项:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text"  name="choice_d" th:value="${testquestion.choice_d}" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">答案:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text"  name="answer" th:value="${testquestion.answer}" class="form-control">
+                </div>
+            </div>
+            <div class="form-group" style="display:none">
+                <label class="col-sm-4 control-label inl">试卷号码:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text" name="test_id" th:value="${testquestion.test_id}"  style="display:none"  class="form-control">
+                    <input type="text" name="id" th:value="${testquestion.id}"  style="display:none"  class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl"></label>
+                <button type="submit" class="btn btn-success col-sm-4 ">提交</button>
+            </div>
+        </fieldset>
+    </form>
+
+</div>
+<script src="../../static/assets/vendor/jquery/jquery.min.js"></script>
+<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+</body>
+</html>

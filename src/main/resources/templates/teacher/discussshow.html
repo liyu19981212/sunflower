@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>讨论内容和评论</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="/static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="/static/assets/vendor/chartist/css/chartist-custom.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/static/assets/css/main.css">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="/static/assets/css/demo.css">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/vendor/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/vendor/linearicons/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/vendor/chartist/css/chartist-custom.css}">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" th:href="@{/assets/css/demo.css}">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf-8" th:src="@{/ueditor.config.js}"></script>
+    <script type="text/javascript" charset="utf-8" th:src="@{/ueditor.all.js}"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" th:src="@{/lang/zh-cn/zh-cn.js}"></script>
+
+    <style type="text/css">
+        div{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <!-- OVERVIEW -->
+            <div class="panel panel-headline">
+                <div class="panel-heading">
+                    <h3 class="panel-title">讨论专区</h3>
+                    <p class="panel-subtitle">多学多问，做一个好孩子</p>
+                    <p th:text="${discuss.title}"></p><p th:text="${discuss.createtime}"></p>
+                    <div th:utext="${discuss.content}"></div>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-5">
+                        <!-- TIMELINE -->
+                        <div class="panel panel-scrolling">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">评论区</h3>
+                                <div class="right">
+                                    <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                                    <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+                                </div>
+                            </div>
+                            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: auto;"><div class="panel-body" style="overflow: hidden; width: auto; height: auto;">
+                                <ul class="list-unstyled activity-list" th:each="c : ${comment}">
+
+                                    <p th:text="${c.content}"></p>
+                                    <p th:text="${c.createtime}"></p>
+
+                                </ul>
+
+                            </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 337.409px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                        </div>
+                        <!-- END TIMELINE -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>
+<form action="/teacher/addcomment" method="post">
+    <div class="form-group">
+        <input type="text" name="d_id" th:value="${discuss.d_id}" style="display:none" >
+        <input type="text" name="content" class="form-control" placeholder="请输入评论..." required>
+    </div>
+
+    <button type="submit" class="btn btn-default">添加评论</button>
+</form>
+
+
+
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+
+
+
+</script>
+<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js}"></script>
+<script th:src="@{/assets/vendor/chartist/js/chartist.min.js}"></script>
+<script th:src="@{/assets/scripts/klorofil-common.js}"></script>
+</body>
+
+</html>

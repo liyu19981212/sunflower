@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>课程</title>
+    <script type="text/javascript" src="../../static/student/js/jquery.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../static/student/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../static/student/css/muke.css">
+    <script type="text/javascript" src="../../static/student/js/jquery.SuperSlide.2.1.1.js"></script>
+
+    <script type="text/javascript" th:src="@{/student/js/jquery.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/student/bootstrap/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/student/css/muke.css}">
+    <script type="text/javascript" th:src="@{/student/js/jquery.SuperSlide.2.1.1.js}"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body class="backg_huibai">
+
+<!-- 顶部 -->
+<div class="width100 float_l height320 img_backg1">
+    <div class="width100 float_l height80 line_hei80">
+        <!-- 顶部左边 -->
+        <div class="float_l">
+            <div class="float_l margin_l20">
+                <a th:href="@{/student/indexaction}"><p>在线学习</p></a>
+            </div>
+            <div class="float_l">
+                <ul class="ul_li fon_siz16">
+                    <li><a th:href="@{/student/mycourse}">我的课程</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- 顶部右边 -->
+        <div class="float_r">
+            <div class="float_l top_input">
+                <div>
+                    <form method="post" action="/student/search">
+                        <input class="posi_relative" type="text" name="c_name" id="c_name" placeholder="请输入想搜索的内容...">
+                        <span class=" bianshou"><button type="submit" class="btn btn-primary">Go</button></span>
+                    </form>
+
+
+                </div>
+
+            </div>
+            <div class="float_l margin_l20">
+
+            </div>
+            <div class="float_l margin_l40">
+                <img th:src="@{/student/img/uiz3.png}">
+            </div>
+            <div class="float_l margin_l35">
+                <img th:src="@{/student/img/uiz6.png}">
+            </div>
+            <div class="float_l margin_l30 margin_r40">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:text="${session.s_username}"> <b class="caret"></b></a>
+
+                    <ul class="dropdown-menu">
+
+                        <li><a target="_blank" th:href="@{/student/info}">个人中心</a></li>
+                        <li class="divider"></li>
+                        <li><a target="_blank" th:href="@{/student/notice}">查看公告</a></li>
+                        <li class="divider"></li>
+                        <li><a th:href="@{/student/logout}">退出登录</a></li>
+                    </ul>
+                </li>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 实战推荐 -->
+<div class="width100 float_l margin_b40">
+    <div class="width_1200 margin_auto">
+
+        <div class="width100 float_l margin_b20">
+            <div class="float_l">
+                <span class="fon_siz16"></span>
+            </div>
+            <div class="float_r bianshou">
+
+            </div>
+        </div>
+
+        <div class="width100 float_l">
+            <div th:each="sz : ${course}">
+                <div class="width_224 height172 float_l margin_r10 border_shadow jingguoxianshi over_pos bianshou">
+                    <div class="width100 float_l img_100 z_inx_1">
+                        <img th:src="${sz.c_img}">
+                    </div>
+                    <div class="img_backg2 donghua">
+                        <span class="margin_t15 float_l " th:text="${sz.c_name}"></span>
+                        <span class="float_l fon_siz12 line_hei16 color_gray margin_t5 posi_relative " th:text="${sz.c_info}"></span>
+                    </div>
+                    <div class="width100 float_l padding_lr20 height48 fon_siz12 line_hei48 z_inx_3 posi_relative backg_white">
+                        <span class="float_l color_red" th:text="${sz.c_id}"></span>
+                        <a target="_blank" th:href="@{/student/select/(c_id=${sz.c_id})}"><span class="float_r color_gray"><span>点击</span>进入学习</span></a>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- iOS 工程师 -->
+<div class="width100 float_l padding_b45 backg_qiangray">
+    <div class="width_1200 margin_auto">
+        <div class=" width_224 height364 float_l img_backg3 margin_r20">
+            <div class="width100 float_l padding_lr20 color_white fon_siz32 b_weight700 margin_t10">
+                <span>iOS<br>工程师</span>
+            </div>
+            <div class="width100 float_l padding_lr20 color_white fon_siz16 margin_t30 jiantoubianhua bianshou">
+                <span>职业路径<span class="margin_l5 wobianhua">></span></span>
+            </div>
+            <div class="width100 float_l padding_lr20 color_white fon_siz12 bianshou line_hei26 color_shenred wobeijingguos margin_t120">
+                <a>jQuery源码探索之旅</a>
+                <a>高德开发者必由之路——JS API篇</a>
+                <a>教你HTML5开发爱心鱼游戏</a>
+            </div>
+        </div>
+        <div class="width_468 float_l margin_r20">
+            <div class=" width100 float_l height172 kaishimeiyou img_backg4 text-center line_hei172 margin_b20">
+                <span class="fon_siz20 color_white b_weight700">像搭积木一样的组件式开发</span>
+            </div>
+            <div class=" width100 float_l height172 kaishimeiyou img_backg9 text-center line_hei172 ">
+                <span class="fon_siz20 color_white b_weight700">web前端设计从入门到精通</span>
+            </div>
+        </div>
+        <div class="width_468 float_l">
+            <div class=" width100 float_l height172 kaishimeiyou img_backg4 text-center line_hei172 margin_b20">
+                <span class="fon_siz20 color_white b_weight700">像搭积木一样的组件式开发</span>
+            </div>
+            <div class=" width100 float_l height172 kaishimeiyou img_backg9 text-center line_hei172 ">
+                <span class="fon_siz20 color_white b_weight700">web前端设计从入门到精通</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 页脚 -->
+<div class="width100 float_l padding_t30 height193">
+    <div class="width_1200 margin_auto">
+        <div class="width100 float_l text_c margin_b30">
+            <a class="img_backg5" href="#"></a>
+            <a class="img_backg6 posi_relative wexinmaxianshi" href="#"><i class="weixinweima dis_none"><img th:src="@{/student/img/公众号缩略图.png}" height="180px" width="180px"></i></a>
+            <a class="img_backg7" href="#"></a>
+            <a class="img_backg8" href="#"></a>
+        </div>
+        <div class="width100 float_l text_c yejiao color_gray">
+            <a>关于我们</a>
+            <a>企业合作</a>
+            <a>人才招聘</a>
+            <a>讲师招募</a>
+            <a>联系我们</a>
+            <a>意见反馈</a>
+            <a>友情链接</a>
+        </div>
+        <div class="width100 float_l text_c border_t margin_t20 padding_t20 color_gray fon_siz12">
+            <span>© 2018年11月20日 runok.top  鲁ICP备18053490号</span>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

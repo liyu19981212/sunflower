@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.runok.mapper.CourseFileMapper">
+    <!--
+    //查询所有的课件
+    public List<CourseFile> select_all();
+    //根据课程号查询
+    public List<CourseFile> selectByC_id(Integer c_id);
+    //根据课程号查询
+    public CourseFile selectByF_id(Integer f_id);
+    //添加课件
+    public  int insert(CourseFile courseFile);
+    //修改课件
+    public int update(CourseFile courseFile);
+    //删除课件
+    public  int delete(CourseFile courseFile);
+     -->
+    <insert id="insert" parameterType="top.runok.entity.CourseFile" >
+        insert into course_file(f_id,f_path,f_name,c_id) values (null,#{f_path},#{f_name},#{c_id})
+    </insert>
+    <delete id="delete" parameterType="Integer">
+        delete from course_file where f_id = #{f_id}
+    </delete>
+    <update id="update" parameterType="top.runok.entity.CourseFile">
+        update course_file set f_path=#{f_path},f_name=#{f_name} where f_id=#{f_id}
+    </update>
+    <select id="select_all"  resultType="top.runok.entity.CourseFile">
+        select * from course_file
+    </select>
+    <select id="selectByC_id" parameterType="Integer" resultType="top.runok.entity.CourseFile">
+        select * from course_file where c_id = #{c_id}
+    </select>
+    <select id="selectByF_id" parameterType="Integer" resultType="top.runok.entity.CourseFile">
+        select * from course_file where f_id = #{f_id}
+    </select>
+
+</mapper>

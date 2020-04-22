@@ -1,0 +1,125 @@
+.g-sd1 {
+    position: relative;
+    float: left;
+    width: 225px;
+    margin-right: 0px;
+}
+.g-sd2 {
+
+    float: right;
+    width: 100%;
+    margin-left: 245px;
+}
+
+
+.m-learnleft {
+     padding: 20px 0;
+ }body {
+      background: #eee;
+      font-size: 12px;
+  }
+
+.m-learnleft .top {
+       padding-left: 10px;
+   }
+.f-pr {
+        position: relative;
+    }
+.m-learnleft .top .search {
+    width: 216px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    margin-top: 10px;
+}
+.u-searchIpt {
+    background: #fafafa;
+    height: 30px;
+    width: 210px;
+    float: left;
+    padding: 0 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+}
+.m-learnleft .tab {
+    width: 230px;
+    padding: 0;
+    margin: 10px;
+}
+.u-tabul {
+    width: 205px;
+    padding: 10px;
+}
+.m-learnleft .tab li {
+    margin-bottom: 0px;
+}
+.u-tabul .u-greentab {
+    margin-bottom: 2px;
+}
+.f-f0, .success-modal {
+    font-family: "Arial","Hiragino Sans GB", \5fae\8f6f\96c5\9ed1, "Helvetica", "sans-serif";
+}
+.f-f0 {
+    font-family: "Arial","Hiragino Sans GB","Microsoft YaHei", \5fae\8f6f\96c5\9ed1, "Helvetica", "sans-serif";
+}
+.f-f0 {
+    font-family: "Microsoft YaHei", \5fae\8f6f\96c5\9ed1, "Helvetica", "sans-serif";
+}
+body li {
+    clear: none;
+}
+li {
+    list-style: none;
+}
+ul {
+    list-style-type: disc;
+}
+.m-learnleft .tab li.first a {
+    border-top: none;
+}
+.m-learnleft .tab li a {
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid #f0f0f0;
+}
+a.f-thide.f-fc3 {
+}
+.u-tabul .u-curtab a {
+    color: #fff;
+    background-color: #55b929;
+}
+.u-tabul .u-greentab a {
+    display: block;
+    font-size: 16px;
+    line-height: 40px;
+    padding-left: 12px;
+    background-color: #fff;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.m-coulshar {
+    width: 210px;
+    margin: 10px;
+    padding: 20px 10px;
+    font-size: 16px;
+    height: 24px;
+    line-height: 24px;
+}
+.f-cb, .g-container {
+    zoom: 1;
+}
+.f-bg {
+    background-color: #fff;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.m-coulshar.hover {
+    cursor: pointer;
+    position: relative;
+}
+.f-cd, .g-container {
+    zoom: 2;
+}

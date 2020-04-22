@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.runok.mapper.StudentMapper">
+    <select id="login" parameterType="top.runok.entity.Student" resultType="top.runok.entity.Student">
+  	SELECT * FROM student WHERE username = #{username} AND password = #{password}
+   </select>
+    <select id="select_all"  resultType="top.runok.entity.Student">
+  	SELECT * FROM student
+   </select>
+    <select id="check" parameterType="String" resultType="top.runok.entity.Student">
+        select * from student where username = #{username}
+    </select>
+    <select id="selectById" parameterType="Integer" resultType="top.runok.entity.Student">
+        select * from student where s_id = #{s_id}
+    </select>
+    <insert id="insert" parameterType="top.runok.entity.Student" >
+        insert into student(s_id,s_name,s_num,telphone,username,password) values (null,#{s_name},#{s_num},#{telphone},#{username},#{password})
+    </insert>
+    <update id="update" parameterType="top.runok.entity.Student" >
+        update student set s_name = #{s_name},s_num = #{s_num},telphone = #{telphone},username = #{username},password = #{password} where s_id = #{s_id}
+    </update>
+    <delete id="delete" parameterType="Integer">
+        delete from student where  s_id = #{s_id}
+    </delete>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.runok.mapper.CommentMapper">
+    <!--
+     //根据d_id查找
+    public List<Comment> selectByd_id(Integer d_id);
+    //添加
+    public int insert(Comment comment);
+     -->
+    <select id="selectByd_id" parameterType="Integer" resultType="top.runok.entity.Comment">
+        select * from comment where d_id=#{d_id}
+    </select>
+    <insert id="insert" parameterType="top.runok.entity.Comment">
+        insert into comment(comment_id,d_id,user_id,user_type,content) values (null,#{d_id},#{user_id},#{user_type},#{content})
+    </insert>
+</mapper>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>课程考试管理</title>
+    <link rel="stylesheet" href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="col-md-12">
+    <!-- TABLE STRIPED -->
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">课程考试管理</h3>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>课程考试号</th>
+                    <th>课程考试名称</th>
+                    <th>课程号</th>
+                    <th>考试内容管理</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="t : ${test}">
+                    <td id="test_id" th:text="${t.test_id}"></td>
+                    <td th:text="${t.test_name}"></td>
+
+                    <td th:text="${t.course_id}"></td>
+                    <td><a th:href="@{/teacher/testquestionaction/(test_id=${t.test_id})}">题目管理</a></td>
+
+                    <td><a th:href="@{/teacher/addtest/(c_id=${t.course_id})}">添加||</a><a th:href="@{/teacher/updatetest/(test_id=${t.test_id},test_name=${t.test_name},c_id=${t.course_id})}">修改</a>|| <a th:href="@{/teacher/deletetest/(test_id=${t.test_id},c_id=${t.course_id})}">删除</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END TABLE STRIPED -->
+</div>
+<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+<script language="javascript" type="text/javascript" th:inline="javascript">
+    $(document).ready(function(){
+        var t = $("#test_id").text();
+        //alert("还没有文件，快去添加吧")
+
+
+        if(t){
+            //alert("存在即合理")
+        }else {
+            alert("还没有考试，快去添加吧");
+            var c_id = [[${c_id}]];
+            window.location.href="/teacher/addtest?c_id="+c_id;
+        }
+
+
+    });
+
+</script>
+</body>
+</html>

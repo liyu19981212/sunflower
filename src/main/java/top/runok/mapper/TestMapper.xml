@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.runok.mapper.TestMapper">
+    <!--//根据课程号查找
+    public List<Test> selectByC_id(Integer c_id);
+    //添加考试
+    public int insert(Test test);
+    //删除考试
+    public int delete(Integer test_id);
+    //修改考试
+    public int update(Test test); -->
+    <select id="selectByC_id" resultType="top.runok.entity.Test" parameterType="Integer">
+        select * from test where course_id = #{c_id}
+    </select>
+    <insert id="insert" parameterType="top.runok.entity.Test">
+        insert into test(test_id,course_id,test_name) values (null,#{course_id},#{test_name})
+    </insert>
+    <delete id="delete" parameterType="Integer">
+        delete from test where test_id = #{test_id}
+
+    </delete>
+    <update id="update" parameterType="top.runok.entity.Test">
+        update test set test_name=#{test_name} where test_id=#{test_id}
+    </update>
+</mapper>

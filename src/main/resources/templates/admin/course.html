@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>课程管理</title>
+    <link rel="stylesheet" href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="col-md-12">
+    <!-- TABLE STRIPED -->
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">课程信息管理</h3>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>课程ID号</th>
+                    <th>课程名称</th>
+                    <th>课程信息</th>
+                    <th>课程封面图片</th>
+
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="c : ${course}">
+                    <td th:text="${c.c_id}"></td>
+                    <td th:text="${c.c_name}"></td>
+                    <td th:text="${c.c_info}"></td>
+                    <td ><img th:src="${c.c_img}" height="40" width="40"></td>
+
+
+                    <td><a  th:href="@{/admin/addcourse}">添加||</a><a th:href="@{/admin/updatecourse/(c_id=${c.c_id})}">修改</a>|| <a th:href="@{/admin/deletecourse/(c_id=${c.c_id})}">删除</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END TABLE STRIPED -->
+</div>
+<script src="../../static/assets/vendor/jquery/jquery.min.js"></script>
+<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.runok.mapper.NoticeMapper">
+    <!--
+     //添加
+    public int insert(Notice notice);
+    //修改
+    public int update(Notice notice);
+    //删除
+    public int delete(Integer n_id);
+    //查找
+    public List<Notice> select_All();
+    //根据id号查找
+    public Notice selectByN_id(Integer n_id);
+     -->
+    <insert id="insert" parameterType="top.runok.entity.Notice" >
+        insert into notice(n_id,content,createtime)values (null ,#{content},null )
+    </insert>
+    <update id="update" parameterType="top.runok.entity.Notice">
+        update notice set content=#{content} where n_id=#{n_id}
+    </update>
+    <delete id="delete" parameterType="Integer">
+        delete  from notice where n_id=#{n_id}
+    </delete>
+    <select id="select_All" resultType="top.runok.entity.Notice">
+        select * from notice
+    </select>
+    <select id="selectByN_id" resultType="top.runok.entity.Notice" parameterType="Integer">
+        select * from notice where n_id=#{n_id}
+    </select>
+</mapper>

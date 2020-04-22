@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.runok.mapper.CourseVideoMapper">
+    <!--
+    //查询所有的视频
+    public List<CourseVideo> select_all();
+    //根据课程号查询
+    public List<CourseVideo> selectByC_id(Integer c_id);
+    //根据课程视频id号查询
+    public CourseVideo selectByV_id(Integer v_id);
+    //添加视频
+    public  int insert(CourseVideo courseVideo);
+    //修改视频
+    public int update(CourseVideo courseVideo);
+    //删除视频
+    public  int delete(Integer v_id);
+    -->
+    <insert id="insert" parameterType="top.runok.entity.CourseVideo" >
+        insert into course_video(v_id,v_path,v_name,c_id) values (null,#{v_path},#{v_name},#{c_id})
+    </insert>
+    <delete id="delete" parameterType="Integer">
+        delete from course_video where v_id = #{v_id}
+    </delete>
+    <update id="update" parameterType="top.runok.entity.CourseVideo">
+        update course_video set v_path=#{v_path},v_name=#{v_name} where v_id=#{v_id}
+    </update>
+    <select id="select_all"  resultType="top.runok.entity.CourseVideo">
+        select * from course_video
+    </select>
+    <select id="selectByC_id" parameterType="Integer" resultType="top.runok.entity.CourseVideo">
+        select * from course_video where c_id = #{c_id}
+    </select>
+    <select id="selectByV_id" parameterType="Integer" resultType="top.runok.entity.CourseVideo">
+        select * from course_video where v_id = #{v_id}
+    </select>
+</mapper>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>sunflower|学生注册界面</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="../../static/common/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/common/css/public.css">
+    <link rel="stylesheet" type="text/css" href="../../static/common/css/validate.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/common/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/common/css/public.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/common/css/validate.css}">
+</head>
+<body>
+<div id="bg"></div>
+<div class="show">
+    <h3 class="title">在线学习平台用户中心</h3>
+    <div class="login-panel">
+        <h4 class="form-title">注册&nbsp;在线学习平台账号</h4>
+        <hr class="top-line">
+        <form id="form" method="post" action="/student/register">
+            <div th:if="${not #strings.isEmpty(session.error)}" >
+                <div  th:text="${session.error}"></div>
+            </div>
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" class="form-control" id="username" name="username"  required>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="telphone">手机号</label>
+                <input type="text" class="form-control" id="telphone" name="telphone" required>
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div id="box" onselectstart="return false;">
+            <div class="bgColor"></div>
+            <div class="txt" >滑动解锁</div>
+            <!--给i标签添加上相应字体图标的类名即可-->
+            <div class="slider"><i class="iconfont icon-double-right"></i></div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-info" id="submit">注册</button>
+            </div>
+
+
+
+        </form>
+    </div>
+
+    <div class="switch row">
+        <button class="switch-action" id="login">已经注册过账号？<span>立即登录</span></button>
+    </div>
+
+    <div class="bottom-info">
+        技术支持：<a href="http://liyu.runok.top">在线学习平台</a>&nbsp;•&nbsp;<a href="http://liyu.runok.top">关于我们</a>
+    </div>
+</div>
+
+
+<script src="../../static/common/js/jquery-3.3.1.min.js"></script>
+<script src="../../static/common/js/index.js"></script>
+<script src="../../static/common/js/login.js"></script>
+<script th:src="@{/common/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/common/js/login.js}"></script>
+<script th:src="@{/common/js/index.js}"></script>
+
+</body>
+</html>

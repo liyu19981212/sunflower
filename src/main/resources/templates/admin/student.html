@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="col-md-12">
+    <!-- TABLE STRIPED -->
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">学生用户管理</h3>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>学生ID号</th>
+                    <th>学生姓名</th>
+                    <th>学生学号</th>
+                    <th>学生手机号</th>
+                    <th>学生用户名</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="s : ${student}">
+                    <td th:text="${s.s_id}"></td>
+                    <td th:text="${s.s_name}"></td>
+                    <td th:text="${s.s_num}"></td>
+                    <td th:text="${s.telphone}"></td>
+                    <td th:text="${s.username}"></td>
+
+                    <td><a  th:href="@{/teacher/addstudent}">添加||</a><a th:href="@{/teacher/updatestudent/(s_id=${s.s_id})}">修改</a>|| <a th:href="@{/teacher/deletestudent/(s_id=${s.s_id})}">删除</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END TABLE STRIPED -->
+</div>
+<script src="../../static/assets/vendor/jquery/jquery.min.js"></script>
+<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+
+</body>
+</html>

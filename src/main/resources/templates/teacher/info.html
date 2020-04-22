@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="../../static/assets/vendor/chartist/css/chartist-custom.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../../static/assets/css/main.css">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="../../static/assets/css/demo.css">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="../../static/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../static/assets/img/favicon.png">
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/vendor/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/vendor/linearicons/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/vendor/chartist/css/chartist-custom.css}">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" th:href="@{/assets/css/demo.css}">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" th:href="@{/assets/img/apple-icon.png}">
+    <link rel="icon" type="image/png" sizes="96x96" th:href="@{/assets/img/favicon.png}">
+</head>
+<body>
+               
+<div class="form-horizontal">
+    <form method="post" action="/teacher/updateinfo">
+        <fieldset>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">姓 名:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text" th:value="${teacher.t_name}" name="t_name" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">工 号:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text" th:value="${teacher.t_num}" name="t_num" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">电 话:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text" th:value="${teacher.telphone}" name="telphone" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">用户名:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text" th:value="${teacher.username}" readonly="readonly"  class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl"></label>
+                <button type="submit" class="btn btn-success col-sm-4 ">提交</button>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/student/css/style.css}" />
+    <script src="https://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/student/js/main.js}" ></script>
+    <title></title>
+</head>
+<body>
+<h2 align="center">直男播放器</h2>
+<div id="cans">
+    <video controls="controls" id="video"　src="" poster="" height="500px" width="500px">
+
+    </video>
+    <aside id="playList">
+        <header>
+            <h4>播放列表</h4>
+        </header>
+        <ul th:each="c : ${coursevideo}">
+            <li th:title="${c.v_name}" th:text="${c.v_name}" th:value="${c.v_path}"  ></li>
+
+        </ul>
+        <!--<button title="展开播放列表" id="playList-show"> > </button>-->
+        <button title="收起播放列表" id="playList-hidden">  </button>
+    </aside>
+    <button title="展开播放列表" id="playList-show1"> > </button>
+
+</div>
+</body>
+</html>

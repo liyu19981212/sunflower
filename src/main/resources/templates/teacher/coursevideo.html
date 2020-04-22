@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>课程视频管理</title>
+    <link rel="stylesheet" href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="col-md-12">
+    <!-- TABLE STRIPED -->
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">课程视频管理</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>课程视频号</th>
+                    <th>课程视频名称</th>
+                    <th>文件路径</th>
+
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="coursevideo : ${coursevideos}">
+                    <td id="v_id" th:text="${coursevideo.v_id}"></td>
+                    <td th:text="${coursevideo.v_name}"></td>
+                    <td th:text="${coursevideo.v_path}"></td>
+
+
+                    <td><a th:href="@{/teacher/addcoursevideo/(c_id=${coursevideo.c_id})}">添加||</a><a th:href="@{/teacher/updatecoursevideo/(v_id=${coursevideo.v_id})}">修改</a>|| <a th:href="@{/teacher/deletecoursevideo/(v_id=${coursevideo.v_id})}">删除</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END TABLE STRIPED -->
+</div>
+<script src="../../static/assets/vendor/jquery/jquery.min.js"></script>
+<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+<script language="javascript" type="text/javascript" th:inline="javascript">
+    $(document).ready(function(){
+        var t = $("#v_id").text();
+        //alert("还没有文件，快去添加吧")
+
+
+        if(t){
+            //alert("存在即合理")
+        }else {
+            alert("还没有文件，快去添加吧");
+            var c_id = [[${c_id}]];
+            window.location.href="/teacher/addcoursevideo?c_id="+c_id;
+        }
+
+
+    });
+
+</script>
+</body>
+</html>

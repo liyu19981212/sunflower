@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>选课</title>
+    <script type="text/javascript" th:src="@{/student/js/jquery.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/student/bootstrap/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/student/css/muke.css}">
+    <script type="text/javascript" th:src="@{/student/js/jquery.SuperSlide.2.1.1.js}"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- 顶部 -->
+<div  class="width100 float_l height80 img_backg1">
+    <div class="width100 float_l height80 line_hei80">
+        <!-- 顶部左边 -->
+        <div class="float_l">
+            <div class="float_l margin_l20">
+                <a th:href="@{/student/indexaction}"><p>在线学习</p></a>
+            </div>
+            <div class="float_l">
+                <ul class="ul_li fon_siz16">
+                    <li><a th:href="@{/student/mycourse}">我的课程</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- 顶部右边 -->
+        <div class="float_r">
+            <div class="float_l top_input">
+                <div>
+                    <form method="post" action="/student/search">
+                        <input class="posi_relative" type="text" name="c_name" id="c_name" placeholder="请输入想搜索的内容...">
+                        <span class=" bianshou"><button type="submit" class="btn btn-primary">Go</button></span>
+                    </form>
+
+
+                </div>
+
+            </div>
+            <div class="float_l margin_l20">
+
+            </div>
+
+            <div class="float_l margin_l30 margin_r40">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" th:text="${session.s_username}"> <b class="caret"></b></a>
+
+                    <ul class="dropdown-menu">
+
+                        <li><a target="_blank" th:href="@{/student/info}">个人中心</a></li>
+                        <li class="divider"></li>
+                        <li><a target="_blank" th:href="@{/student/notice}">查看公告</a></li>
+                        <li class="divider"></li>
+                        <li><a th:href="@{/student/logout}">退出登录</a></li>
+                    </ul>
+                </li>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<h1 >您没选过这门课，是否进行学习？</h1>
+<a th:href="@{/student/addcourse/(c_id=${cid})}"><h2>点击添加该课程</h2></a>
+
+</body>
+</html>

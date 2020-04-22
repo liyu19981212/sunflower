@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap 实例 - 带列表组的面板</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="panel panel-default">
+    <div class="panel-heading">面板标题</div>
+    <div class="panel-body">
+        <p>点击下载即可
+
+        </p>
+    </div>
+    <ul class="list-group">
+        <a th:href="@{/student/coursetestaction/(test_id=${test._id})}"><li class="list-group-item">免费域名注册</li></a>
+        <a><li class="list-group-item">免费域名注册</li></a>
+        <a><li class="list-group-item">免费域名注册</li></a>
+
+    </ul>
+</div>
+
+</body>
+</html>

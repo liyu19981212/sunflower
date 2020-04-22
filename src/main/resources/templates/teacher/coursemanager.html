@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>课程管理</title>
+    <link rel="stylesheet" href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+
+</head>
+<body>
+<div class="col-md-12">
+    <!-- TABLE STRIPED -->
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">课程管理</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>课程号</th>
+                    <th>课程名称</th>
+                    <th>课程信息</th>
+                    <th>课程封面</th>
+                    <th>视频管理</th>
+                    <th>课件管理</th>
+                    <th>考试管理</th>
+                    <th>讨论区</th>
+                    <th>学生分组管理</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="course : ${courses}">
+                    <td  id="c_id" th:text="${course.c_id}"></td>
+                    <td th:text="${course.c_name}"></td>
+                    <td th:text="${course.c_info}"></td>
+                    <td><img th:src="${course.c_img}" height="40" width="40"></td>
+                    <td><a th:href="@{/teacher/coursevideoaction/(c_id=${course.c_id})}">进入</a></td>
+                    <td><a th:href="@{/teacher/coursefileaction/(c_id=${course.c_id})}">进入</a></td>
+                    <td><a th:href="@{/teacher/testaction/(c_id=${course.c_id})}">进入</a></td>
+                    <td><a target="_blank" th:href="@{/teacher/discuss/(c_id=${course.c_id})}">进入</a></td>
+                    <td><a th:href="@{/teacher/studentManagement/(c_id=${course.c_id})}">进入</a></td>
+                    <td><a id="update" th:href="@{/teacher/updatecourse/(c_id=${course.c_id})}">修改</a>|| <a id="delete" th:href="@{/teacher/deletecourse/(c_id=${course.c_id})}">删除</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END TABLE STRIPED -->
+</div>
+</body>
+</html>

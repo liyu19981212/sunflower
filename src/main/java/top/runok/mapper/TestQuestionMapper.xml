@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.runok.mapper.TestQuestionMapper">
+    <!--//根据课程考试号查找
+    public List<TestQuestion> selectByTest_id(Integer test_id);
+    //根据课程考试试卷号查找
+    public TestQuestion selectById(Integer id);
+    //添加考试
+    public int insert(TestQuestion testQuestion);
+    //删除考试
+    public int delete(Integer id);
+    //修改考试
+    public int update(TestQuestion testQuestion); -->
+    <select id="selectByTest_id" resultType="top.runok.entity.TestQuestion" parameterType="Integer">
+        select * from test_question where test_id=#{test_id}
+    </select>
+    <select id="selectById" resultType="top.runok.entity.TestQuestion" parameterType="Integer">
+        select * from test_question where id=#{id}
+    </select>
+    <insert id="insert" parameterType="top.runok.entity.TestQuestion" >
+        insert into test_question(id,question,choice_a,choice_b,choice_c,choice_d,answer,test_id) values (null,#{question},#{choice_a},#{choice_b},#{choice_c},#{choice_d},#{answer},#{test_id})
+    </insert>
+    <delete id="delete" parameterType="Integer">
+        delete from test_question where id = #{id}
+    </delete>
+    <update id="update" parameterType="top.runok.entity.TestQuestion" >
+        update test_question set question=#{question},choice_a=#{choice_a},choice_b=#{choice_b},choice_c=#{choice_c},choice_d=#{choice_d},answer=#{answer} where id = #{id}
+    </update>
+</mapper>

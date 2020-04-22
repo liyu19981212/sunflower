@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改课件</title>
+    <link rel="stylesheet" href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="form-horizontal">
+    <form action="/teacher/updatecoursefileaction" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <div class="form-group"></div>
+            <div class="form-group" style="display:none">
+                <label class="col-sm-4 control-label inl">课程文件id号:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text"  th:value="${coursefile.f_id}" name="f_id" style="display:none" class="form-control">
+                    <input type="text"  th:value="${coursefile.c_id}" name="c_id" style="display:none" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">课程文件名称:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text" th:value="${coursefile.f_name}" name="f_name" class="form-control">
+                </div>
+            </div>
+            <div class="form-group" style="display:none">
+                <label class="col-sm-4 control-label inl">课程文件路径:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text" th:value="${coursefile.f_path}" style="display:none" name="f_path" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="inputfile" class="col-sm-4 control-label inl">课程文件</label>
+                <div class="col-sm-4 input-group">
+
+                    <input type="file" name="uploadFile" id="inputfile">
+
+                    <p class="help-block">按要求上传新文件。</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl"></label>
+                <button type="submit" class="btn btn-success col-sm-4 ">提交</button>
+            </div>
+        </fieldset>
+    </form>
+
+</div>
+
+</body>
+</html>

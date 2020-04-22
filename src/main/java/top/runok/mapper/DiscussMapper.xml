@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.runok.mapper.DiscussMapper">
+    <!--
+      //根据课程号查询所有的帖子
+    public List<Discuss> selectByC_id(Integer c_id);
+    //根据课程号学号查询
+    public List<Discuss> selectByS_idC_id(Integer s_id,Integer c_id);
+    //根据帖子ID号查询
+    public Discuss selectByD_id(Integer d_id);
+    //添加帖子
+    public int insert(Discuss discuss);
+     -->
+    <select id="selectByC_id" parameterType="Integer" resultType="top.runok.entity.Discuss">
+        select * from discuss where c_id=#{c_id}
+    </select>
+    <select id="selectByS_idC_id" parameterType="Integer" resultType="top.runok.entity.Discuss">
+        select * from discuss where c_id=#{c_id} and s_id=#{s_id}
+    </select>
+    <select id="selectByD_id" parameterType="Integer" resultType="top.runok.entity.Discuss">
+        select * from discuss where d_id=#{d_id}
+    </select>
+    <insert id="insert" parameterType="top.runok.entity.Discuss">
+        insert into discuss(d_id,title,content,s_id,c_id) values (null,#{title},#{content},#{s_id},#{c_id})
+    </insert>
+</mapper>

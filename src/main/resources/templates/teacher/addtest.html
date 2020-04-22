@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加考试</title>
+    <link rel="stylesheet" href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="form-horizontal">
+    <form id="form" action="/teacher/addtestaction" method="post" >
+        <fieldset>
+            <div class="form-group"></div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">考试名称:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text"  name="test_name" class="form-control">
+                </div>
+            </div>
+            <div class="form-group" style="display:none">
+                <label class="col-sm-4 control-label inl">课程号:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text" name="c_id" th:value="${test.course_id}"  style="display:none"  class="form-control">
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl"></label>
+                <button type="submit" class="btn btn-success col-sm-4 ">提交</button>
+            </div>
+        </fieldset>
+    </form>
+
+</div>
+<script src="../../static/assets/vendor/jquery/jquery.min.js"></script>
+<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+</body>
+</html>

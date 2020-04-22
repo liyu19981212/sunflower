@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.runok.mapper.CourseMapper">
+    <!--课程
+    //查询所有的课程
+    public List<Course> select_all();
+    //根据课程id查询
+    public Course selectByC_id(Integer c_id);
+    //根据教师id查询
+    public Course selectByT_id(Integer t_id);
+    //根据课程名字查询
+    public  Course selectByC_name(String c_name);
+    //添加课程
+    public int insert(Course course);
+    //根据课程id修改课程
+    public  int update(Course course);
+    //删除课程
+    public int delete(Integer c_id);
+    //根据课程名字模糊查询
+    public List<Course> selectbyname(String c_name);
+    -->
+    <select id="select_all" resultType="top.runok.entity.Course">
+        select * from course
+    </select>
+    <select id="selectByC_id" parameterType="Integer" resultType="top.runok.entity.Course">
+        select * from course where c_id = #{c_id}
+    </select>
+    <select id="selectByT_id" parameterType="Integer" resultType="top.runok.entity.Course">
+        select * from course where t_id = #{t_id}
+    </select>
+    <select id="selectByC_name" parameterType="String" resultType="top.runok.entity.Course">
+        select * from course where c_name = #{c_name}
+    </select>
+    <select id="selectbyname" parameterType="String" resultType="top.runok.entity.Course">
+        select * from course where c_name like concat('%',#{c_name},'%');
+    </select>
+    <insert id="insert" parameterType="top.runok.entity.Course" >
+        insert into course(c_id,c_name,c_info,c_img,t_id) values (null,#{c_name},#{c_info},#{c_img},#{t_id})
+    </insert>
+    <update id="update" parameterType="top.runok.entity.Course">
+        update course set c_name=#{c_name},c_info=#{c_info},c_img=#{c_img} where c_id=#{c_id}
+    </update>
+    <delete id="delete" parameterType="Integer">delete from course where c_id=#{c_id}</delete>
+
+</mapper>

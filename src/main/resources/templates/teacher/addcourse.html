@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加课程</title>
+    <link rel="stylesheet" href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/assets/vendor/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="form-horizontal">
+    <form id="form" action="/teacher/addcourseaction" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <div class="form-group"></div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">课程名称:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text"  name="c_name" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl">课程信息:</label>
+                <div class="col-sm-4 input-group">
+                    <input type="text"  name="c_info" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="inputfile" class="col-sm-4 control-label inl">课程封面图片</label>
+                <div class="col-sm-4 input-group">
+
+                    <input type="file" name="uploadFile" id="inputfile" accept="image/*">
+
+                    <p class="help-block">按要求上传。</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label inl"></label>
+                <button type="submit" class="btn btn-success col-sm-4 ">提交</button>
+            </div>
+        </fieldset>
+    </form>
+
+</div>
+<script src="../../static/assets/vendor/jquery/jquery.min.js"></script>
+<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+<script>
+    $('#form').submit(function(){//当表单被提交时，进行表单验证
+        var fileInput = $('#inputfile').get(0).files[0];
+        if(fileInput){
+            document.form.submit();
+        }else{
+            alert("请选择上传文件！");
+        }
+        return false; //这个很重要，靠return false来阻止html的表单动作，让所有的表单动作都交给JS来处理。
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>测验内容</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div th:each="tq:${testquestion}">
+    <label   th:text="${tq.question}">
+
+    </label>
+    <div>
+        <input id="tqid"  type="text" name="question" th:value="${tq.id}"  style="display:none"   class="form-control" readonly>
+        <label class="radio-inline">
+            <input  type="radio" th:text="${tq.choice_a}" name="option" id="optionsRadios1" value="option1">
+        </label>
+        <label class="radio-inline">
+            <input type="radio" th:text="${tq.choice_b}" name="option" id="optionsRadios2"  value="option2">
+        </label>
+        <label class="radio-inline">
+            <input type="radio" th:text="${tq.choice_c}" name="option" id="optionsRadios3" value="option3" >
+        </label>
+        <label class="radio-inline">
+            <input type="radio" th:text="${tq.choice_d}" name="option" id="optionsRadios4"  value="option4">
+        </label>
+        <a id="insert" th:href="@{/teacher/addtestquestion/(test_id=${tq.test_id})}">添加</a>||<a id="update" th:href="@{/teacher/updatetestquestion/(id=${tq.id},test_id=${tq.test_id})}">修改</a>|| <a id="delete" th:href="@{/teacher/deletetestquestion/(id=${tq.id},test_id=${tq.test_id})}">删除</a>
+        <div class="form-group" style="display:none">
+            <label class="col-sm-4 control-label inl">课程号:</label>
+            <div class="col-sm-4 input-group">
+                <input type="text" name="test_id" th:value="${tq.test_id}"  style="display:none"  class="form-control">
+            </div>
+        </div>
+    </div>
+
+</div>
+<script th:src="@{/assets/vendor/jquery/jquery.min.js}"></script>
+<script language="javascript" type="text/javascript" th:inline="javascript">
+    $(document).ready(function(){
+        var t = $("#tqid").text();
+        //alert("还没有文件，快去添加吧")
+
+
+        if(t!=null){
+            //alert("存在即合理")
+        }else {
+            alert("还没有题目，快去添加吧");
+            var test_id = [[${test_id}]];
+            window.location.href="/teacher/addtestquestion?test_id="+test_id;
+        }
+
+
+    });
+
+</script>
+</body>
+</html>
